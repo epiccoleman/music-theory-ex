@@ -21,6 +21,12 @@ defmodule Music do
     :unison, :major_2nd, :major_3rd, :perfect_4th, :perfect_5th, :major_6th, :major_7th]
   @natural_minor_formula [ #whwwhww
     :unison, :major_2nd, :minor_3rd, :perfect_4th, :perfect_5th, :minor_6th, :minor_7th]
+  @major_chord_formula [
+    :unison, :major_3rd, :perfect_5th
+  ]
+  @minor_chord_formula [
+    :unison, :minor_3rd, :perfect_5th
+  ]
 
   def notes() do
     @notes
@@ -55,5 +61,13 @@ defmodule Music do
 
   def minor_scale(root) do
     scale(@natural_minor_formula, root)
+  end
+
+  def major_chord(root) do
+    scale(@major_chord_formula, root)
+  end
+
+  def minor_chord(root) do
+    scale(@minor_chord_formula, root)
   end
 end
