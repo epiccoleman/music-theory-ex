@@ -1,5 +1,5 @@
 defmodule Music do
-  @notes [ :c, :dbcs, :d, :ebds, :e, :f, :gbfs, :g, :abgs, :a, :bbas, :b, ]
+  @notes [ :c, :csdb, :d, :dseb, :e, :f, :fsgb, :g, :gsab, :a, :asbb, :b, ]
 
   @intervals %{
     unison: 0,
