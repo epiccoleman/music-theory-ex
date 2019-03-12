@@ -21,20 +21,11 @@ defmodule Music do
     :unison, :major_2nd, :major_3rd, :perfect_4th, :perfect_5th, :major_6th, :major_7th]
   @natural_minor_formula [ #whwwhww
     :unison, :major_2nd, :minor_3rd, :perfect_4th, :perfect_5th, :minor_6th, :minor_7th]
-  @major_chord_formula [
-    :unison, :major_3rd, :perfect_5th
-  ]
-  @minor_chord_formula [
-    :unison, :minor_3rd, :perfect_5th
-  ]
 
-  def notes() do
-    @notes
-  end
-
-  def intervals() do
-    @intervals
-  end
+  @chord_formulas %{
+    maj: [:unison, :major_3rd, :perfect_5th],
+    min: [:unison, :minor_3rd, :perfect_5th],
+  }
 
   def chromatic_scale(root) do
     shift_by = Enum.find_index(@notes, fn(x) -> x == root end)
@@ -55,19 +46,16 @@ defmodule Music do
     |> Enum.map(fn(x) -> note_for_interval(root, x, :asc) end)
   end
 
+  def chord(type, root) do
+    @chord_formulas[type]
+    |> scale(root)
+  end
+
   def major_scale(root) do
     scale(@major_scale_formula, root)
   end
 
   def minor_scale(root) do
     scale(@natural_minor_formula, root)
-  end
-
-  def major_chord(root) do
-    scale(@major_chord_formula, root)
-  end
-
-  def minor_chord(root) do
-    scale(@minor_chord_formula, root)
   end
 end

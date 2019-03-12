@@ -19,10 +19,10 @@ defmodule MusicTest do
   end
 
   test "c major chord" do
-    assert Music.major_chord(:c) == [ :c, :e, :g ]
+    assert Music.chord(:maj, :c) == [ :c, :e, :g ]
   end
 
   test "a minor chord" do
-    assert Music.minor_chord(:a) == [ :a, :c, :e ]
+    assert Music.chord(:min, :a) == [ :a, :c, :e ]
   end
 end
