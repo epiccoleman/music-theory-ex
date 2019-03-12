@@ -39,7 +39,7 @@ defmodule Music do
   end
 
   def note_for_interval(root, interval, :asc) do
-    interval_semitones = @intervals[interval]
+    interval_semitones = @intervals[interval] |> rem(12)
     chromatic_scale(root)
     |> Enum.at(interval_semitones)
   end
